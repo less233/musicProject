@@ -1,0 +1,45 @@
+.song-list {
+    #myc-nav {
+        position: sticky;
+        top: 0px;
+        padding-top: 30px;
+        z-index: 999;
+        background-color: #fff;
+    }
+
+    .list-contain {
+        margin-bottom: 63px;
+        overflow: auto;
+
+        .list-content {
+            .box {
+                // background-color: #f0f0f0;
+                width: calc((100% - 60px)/3);
+                height: 150px;
+                margin: 15px;
+                margin-bottom: 0;
+                overflow: hidden;
+
+                &:nth-child(3n + 2) {
+                    margin: 15px 0;
+                    margin-bottom: 0;
+                }
+
+                .img-box {
+                    height: 105px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    border-radius: 8px;
+                }
+
+                .title-box {
+                    font-size: 11px;
+                    line-height: 19px;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

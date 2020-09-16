@@ -1,0 +1,85 @@
+.my {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+
+    .bg {
+        height: 240px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-info {
+        margin-top: -120px;
+        height: 120px;
+
+        .islogin {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-left: 20px;
+            }
+
+            .nickname {
+                color: #fff;
+                font-size: 18px;
+                margin-left: 12px;
+            }
+        }
+
+        .nologin {
+            background-color: purple;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-left: 20px;
+
+                .van-icon {
+                    color: #fff;
+                    font-size: 50px;
+                }
+            }
+
+            .nickname {
+                color: #fff;
+                font-size: 12px;
+                position: absolute;
+                margin-left: 80px;
+            }
+
+            .van-button {
+                width: 80px;
+                height: 22px;
+                color: #fff;
+                background-color: transparent;
+                font-size: 12px;
+                border-color: #fff;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .box {
+        background-color: pink;
+        margin: 15px 10px;
+        height: 80px;
+        border-radius: 10px;
+    }
+    
+}

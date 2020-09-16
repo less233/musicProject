@@ -1,0 +1,90 @@
+.list {
+    background-color: #36363b;
+    padding-top: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+
+    .contain {
+        background-color: #fff;
+        width: 100%;
+        height: calc(100vh - 76px - 48px);
+        overflow-y: auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+
+        .title-text {
+            background-color: #fff;
+            height: 40px;
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 99;
+
+            &:active {
+                background-color: #f0f0f0;
+            }
+
+            .van-icon {
+                margin-left: 20px;
+                font-size: 22px;
+            }
+
+            .text {
+                margin-left: 10px;
+                font-size: 16px;
+            }
+        }
+
+
+        .hot-song {
+            margin-top: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            padding: 5px 0;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+
+            &:active {
+                background-color: #f0f0f0;
+            }
+
+            .serial {
+                font-size: 16px;
+                color: #e94546;
+                margin-left: 20px;
+            }
+
+            .content {
+                position: absolute;
+                margin-left: 48px;
+
+                .song {
+                    width: calc(100vw - 88px);
+                    font-size: 14px;
+                    color: #323232;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .intro {
+                    font-size: 12px;
+                    color: #989898;
+                    margin-top: 2px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}

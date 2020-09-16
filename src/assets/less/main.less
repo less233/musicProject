@@ -1,0 +1,172 @@
+.main {
+  padding-top: 30px;
+
+  .my-popup {
+    .van-icon {
+      font-size: 20px;
+      color: #333;
+    }
+
+    .van-info {
+      font-size: 12px;
+    }
+  }
+
+  .van-nav-bar {
+    background-color: transparent;
+
+    .van-tabbar {
+      background-color: transparent;
+      width: 210px;
+      height: 46px;
+      justify-content: center;
+
+      .van-tabbar-item {
+        width: 46px;
+        height: 46px;
+        font-size: 14px;
+        border-radius: 46px;
+        flex: none;
+      }
+
+      .van-tabbar-item--active {
+        color: #000;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .van-tabbar-item:active {
+        background-color: #eee;
+      }
+    }
+
+    .my-search {
+      color: #333;
+      font-size: 20px;
+    }
+  }
+
+  .van-popup {
+    width: 315px;
+    overflow: hidden;
+
+    .pop-bg {
+      width: 316px;
+      height: 170px;
+      overflow: hidden;
+    }
+
+    .pop-contain {
+      width: 100%;
+      height: calc(~"100% - 170px");
+      padding: 25px 20px 0 20px;
+      box-sizing: border-box;
+
+      .islogin-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .user {
+          display: flex;
+          align-items: center;
+
+          .icon {
+            background-color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .uname {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 16px;
+          }
+        }
+
+        .check-ins {
+          background-color: #fe3a3b;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          padding: 4px 8px;
+          border-radius: 10px;
+
+          .iconfont {
+            font-size: 12px;
+          }
+
+          .text {
+            margin-left: 4px;
+            font-size: 12px;
+          }
+        }
+      }
+
+      .logout {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+      }
+
+      .notlogin-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .prompt {
+          color: #333333;
+          margin-bottom: 12px;
+          font-size: 14px;
+        }
+
+        .van-button {
+          width: 120px;
+          height: 30px;
+        }
+      }
+    }
+  }
+
+  .van-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    z-index: 9999;
+  }
+
+}
+
+
+
+// 引用iconfont
+@font-face {
+  font-family: 'iconfont';
+  src: url('../icon/font_qapgdgruji/iconfont.eot');
+  src: url('../icon/font_qapgdgruji/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../icon/font_qapgdgruji/iconfont.woff2') format('woff2'),
+    url('../icon/font_qapgdgruji/iconfont.woff') format('woff'),
+    url('../icon/font_qapgdgruji/iconfont.ttf') format('truetype'),
+    url('../icon/font_qapgdgruji/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

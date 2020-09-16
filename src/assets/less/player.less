@@ -1,0 +1,345 @@
+.player {
+    box-sizing: border-box;
+    padding-top: 30px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: hidden;
+
+    .animat {
+        animation: turn 10s linear infinite normal none running;
+    }
+
+    .paused {
+        animation: turn 10s linear infinite normal none paused;
+    }
+
+    .title {
+        height: 46px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+
+        .song {
+            font-size: 15px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .singer {
+            font-size: 12px;
+            color: #afb0b2;
+            margin-top: 4px;
+        }
+    }
+
+    .bg {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scale(2);
+        z-index: -999;
+        filter: blur(10px);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: hidden;
+        background-color: rgba(0, 0, 0, .66);
+        z-index: -99;
+    }
+
+    .contain {
+        // background-color: skyblue;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: calc(100% - 46px);
+
+        .cont {
+            // background-color: purple;
+            height: calc(100% - 120px - 20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .gramophone {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .point {
+                    background-color: #fff;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    position: absolute;
+                    z-index: 2;
+                }
+
+                .tonearm {
+                    background-image: url(../images/needle-ip6.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 110px;
+                    height: 200px;
+                    margin-top: 10px;
+                    margin-left: 75px;
+                    z-index: 1;
+                    transition: transform .6s linear;
+                    transform: rotateZ(10deg);
+                    transform-origin: 20px 0px;
+                }
+
+                .active {
+                    transform: rotateZ(-20deg);
+                }
+
+                .turntable {
+                    box-sizing: border-box;
+                    background-image: url(../images/disc-ip6.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    width: 270px;
+                    height: 270px;
+                    display: flex;
+                    justify-content: center;
+                    align-content: center;
+                    overflow: hidden;
+                    margin: -100px auto;
+
+                    img {
+                        width: 165px;
+                        height: 165px;
+                        margin: auto;
+                        border-radius: 50%;
+                        z-index: -1;
+                    }
+                }
+
+            }
+
+            .lyric-box {
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                padding: 80px 0;
+                margin: 20px 0;
+
+                .lyric {
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+
+                    .row {
+                        margin: 10px 20px;
+                        font-size: 16px;
+                        color: #9a9899;
+                        text-align: center;
+                    }
+
+                    .active {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .func {
+            // background-color: pink;
+            height: 120px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .func-control {
+                display: flex;
+                justify-content: space-evenly;
+            }
+
+            .progress-control {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                .time {
+                    width: 8%;
+                    text-align: center;
+                    margin: 10px;
+                }
+
+                .van-slider {
+                    // width: 280px;
+                    flex: 1;
+                    background-color: rgba(255, 255, 255, .5);
+
+                    .van-slider__bar {
+                        background-color: #969da5;
+                    }
+
+                    .van-slider__button {
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+            }
+
+            .play-control {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                height: 40px;
+                color: #fff;
+
+                .play {
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+
+    .van-popup {
+        box-sizing: border-box;
+        height: 480px;
+        width: 92%;
+        margin-left: 4%;
+        margin-bottom: 22px;
+        border-radius: 20px;
+        color: #333333;
+        padding: 15px;
+        padding-right: 19px;
+        overflow: hidden;
+
+        .title-text {
+            margin-top: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .controls-box {
+            // background-color: red;
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #b7b7b7;
+
+                .text {
+                    margin-left: 8px;
+                    color: #4d4d4d;
+                }
+            }
+
+            .van-icon {
+                font-size: 18px;
+                color: #b7b7b7;
+            }
+        }
+
+        .list-box {
+            height: 380px;
+            overflow: auto;
+
+            .song {
+                margin: 25px 0;
+                font-size: 14px;
+                color: #333333;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .van-icon {
+                    font-size: 18px;
+                    color: #b7b7b7;
+                }
+
+                .van-ellispsis {
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+
+                    .singer {
+                        font-size: 10px;
+                        color: #b7b7b7;
+                    }
+
+                    .van-icon {
+                        color: #f43e3e;
+                        margin-right: 8px;
+                    }
+                }
+
+                .active {
+                    color: #f43e3e;
+
+                    .singer {
+                        color: #f43e3e;
+                    }
+                }
+            }
+
+
+        }
+    }
+
+}
+
+
+
+
+@keyframes turn {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    50% {
+        transform: rotateZ(180deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+
+// 引用iconfont
+@font-face {
+    font-family: 'iconfont';
+    src: url('../icon/player/iconfont.eot');
+    src: url('../icon/player/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../icon/player/iconfont.woff2') format('woff2'),
+        url('../icon/player/iconfont.woff') format('woff'),
+        url('../icon/player/iconfont.ttf') format('truetype'),
+        url('../icon/player/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

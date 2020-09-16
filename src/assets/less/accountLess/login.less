@@ -1,0 +1,118 @@
+.login {
+    padding-top: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background-color: #dc2c1f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        background-color: #f12a25;
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 120px;
+
+        .iconfont {
+            font-size: 50px;
+            color: #fff;
+        }
+    }
+
+    .function-gather {
+        display: flex;
+        flex-direction: column;
+
+        .van-button {
+            width: 260px;
+            height: 40px;
+            margin: 8px 0;
+            color: #fd393a;
+        }
+
+        .van-button--plain {
+            background-color: rgba(0, 0, 0, 0);
+            color: #fff;
+        }
+
+        .thirdparty {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 20px 0;
+
+            .tplb {
+                background-color: transparent;
+                padding: 9px;
+                border-radius: 50%;
+                box-shadow: 0 0 0 .4px #fff;
+                overflow: hidden;
+
+                .iconfont {
+                    color: #fff;
+                }
+
+                &:active {
+                    background-color: rgba(255, 255, 255, .15);
+                }
+            }
+        }
+
+        .agreement {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 6px;
+            color: #fd9e99;
+
+            .first {
+                display: flex;
+                align-items: center;
+
+                .radio {
+                    width: 10px;
+                    height: 10px;
+                    box-shadow: 0 0 0 .4px #fff;
+                    margin-right: 6px;
+                    overflow: hidden;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            p {
+                color: #ffccc9;
+                font-weight: lighter;
+                display: inline;
+            }
+        }
+    }
+}
+
+
+// 引用iconfont
+@font-face {
+    font-family: 'iconfont';
+    src: url('../../icon/font_sczcxycq0r/iconfont.eot');
+    src: url('../../icon/font_sczcxycq0r/iconfont.eot?#iefix') format('embedded-opentype'),
+        url('../../icon/font_sczcxycq0r/iconfont.woff2') format('woff2'),
+        url('../../icon/font_sczcxycq0r/iconfont.woff') format('woff'),
+        url('../../icon/font_sczcxycq0r/iconfont.ttf') format('truetype'),
+        url('../../icon/font_sczcxycq0r/iconfont.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
