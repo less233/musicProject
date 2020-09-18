@@ -1,7 +1,7 @@
 ## 音乐API
 
 ```txt
-    请求基础路径 http://music.kele8.cn
+    请求基础路径 http://localhost:3000
     音乐id请求基础路径:  https://music.163.com/song/media/outer/url?id=
 ```
 
