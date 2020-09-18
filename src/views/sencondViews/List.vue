@@ -94,6 +94,15 @@ export default {
           id: this.$route.query.id,
           // cookie: localStorage.getItem("cookie"),
         };
+      } else if (this.$route.query.url == "/user/record") {
+        params = {
+          uid,
+        };
+      } else if (this.$route.query.url == "/recommend/resource") {
+        params = {
+          cookie: localStorage.getItem("cookie"),
+          uid,
+        };
       }
 
       await this.axios({
@@ -107,15 +116,23 @@ export default {
           if (result.data.code != 200) return;
 
           if (this.$route.query.url == "/likelist") {
+            // 我的喜欢歌曲数据处理
             this.imgId = result.data.checkPoint;
             this.list = result.data.ids;
           } else if (this.$route.query.url == "/recommend/songs") {
+            // 每日推荐歌曲数据处理
             result.data.data.dailySongs.map((v) => {
               this.list.push(v.id);
             });
           } else if (this.$route.query.url == "/playlist/detail") {
+            // 歌单数据处理
             result.data.playlist.trackIds.map((v) => {
               this.list.push(v.id);
+            });
+          } else if (this.$route.query.url == "/user/record") {
+            // 全部已播歌曲数据处理
+            result.data.allData.map((v) => {
+              this.list.push(v.song.id);
             });
           }
         })

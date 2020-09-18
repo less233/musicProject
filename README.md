@@ -85,10 +85,19 @@
 ```
 
 ```txt
-    获取用户播放记录
+    获取用户播放记录( 需要登录 )
     接口地址: /user/record
     请求类型: GET
     参数:
     uid : 用户 id
     type : type=1 时只返回 weekData, type=0 时返回 allData
+```
+
+
+```txt
+    推荐歌单
+    接口地址: /personalized
+    请求类型: GET
+    参数:
+    limit: 取出数量 , 默认为 30 (不支持 offset)
 ```

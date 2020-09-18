@@ -32,7 +32,13 @@
         </div>
 
         <!-- 歌词 -->
-        <div v-show="showLyric" class="lyric-box" ref="lyric" @touchmove="scrollStop">
+        <div
+          v-show="showLyric"
+          class="lyric-box"
+          ref="lyric"
+          @touchmove="scrollStop"
+          @touchend="lyricTouchEnd"
+        >
           <div class="lyric">
             <div
               class="row"
@@ -132,6 +138,8 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState, mapMutations } = createNamespacedHelpers("primaryModule");
 
 export default {
+  name: "player",
+
   components: {
     navComponent,
   },
@@ -168,13 +176,15 @@ export default {
       // 1：顺序播放
       // 2：随机播放
       // 3：单曲xunhuan
-      playFunc: 3,
+      playFunc: 1,
       // 当前歌词行
       row: 0,
       // 节流阀
       flag: true,
       // 延时器
       timer: null,
+      // 判断是否在拉歌词
+      isPull: false,
     };
   },
 
@@ -189,6 +199,10 @@ export default {
     // 是否显示歌词
     changeShowLyric() {
       this.showLyric = !this.showLyric;
+      if (this.showLyric) {
+        clearInterval(this.timer);
+        this.rollLyric();
+      }
     },
 
     // 改变播放进度
@@ -335,14 +349,16 @@ export default {
 
       await this.musicInfFunc();
 
+      this.$toast.clear();
+      this.playerInfo.audio.play();
       setTimeout(() => {
-        this.$toast.clear();
-        this.playerInfo.audio.play();
-        this.getLyric();
-        this.playerInfo.audio.onstalled = function () {
-          console.log("不可用");
-        };
-      }, 400);
+        console.log(this.playerInfo.audio.readyState);
+        if (this.playerInfo.audio.readyState == 0) {
+          this.playerInfo.audio.pause();
+          this.changePlayerInfo({ autoplay: false });
+          this.next();
+        }
+      }, 2000);
     },
 
     // 获取歌词
@@ -458,6 +474,7 @@ export default {
 
     // 自动滚动歌词
     rollLyric() {
+      this.timer = null;
       let step;
       this.timer = setInterval(() => {
         if (this.$refs.lyric.scrollTop == this.$refs.row[0].offsetTop) {
@@ -472,29 +489,41 @@ export default {
       }, 30);
     },
 
-    // 滚动事件
+    // 停止滚动事件
     scrollStop() {
-      console.log("scroll");
+      if (!this.isPull) {
+        this.isPull = true;
+        clearInterval(this.timer);
+      }
     },
+
+    // 重新滚动事件
+    lyricTouchEnd() {
+      this.isPull = false;
+      setTimeout(() => {
+        if (!this.isPull) {
+          clearInterval(this.timer);
+          this.rollLyric();
+        }
+      }, 4000);
+    },
+  },
+
+  created() {
+    this.isEnded();
+    this.playerInfo.audio.ontimeupdate = () => {
+      if (this.flag) {
+        this.flag = false;
+        this.updateTime();
+        this.judgeNowPlay();
+        this.flag = true;
+      }
+    };
+    this.getLyric();
   },
 
   activated() {
     this.getPlayList();
-    this.isEnded();
-
-    if (this.flag) {
-      this.flag = false;
-      this.playerInfo.audio.ontimeupdate = () => {
-        this.updateTime();
-        this.judgeNowPlay();
-        this.rollLyric();
-      };
-      setTimeout(() => {
-        this.flag = true;
-      }, 1000);
-    }
-
-    this.getLyric();
   },
 };
 </script>

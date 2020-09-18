@@ -54,8 +54,9 @@ Vue.config.productionTip = false
 Vue.use(VueAxios, axios)
 
 // 设置请求基础路径
-// axios.defaults.baseURL = 'http://music.kele8.cn'
-axios.defaults.baseURL = 'http://localhost:3000';
+// 微信同号：less233
+axios.defaults.baseURL = 'http://music.less233.xyz:3000/'
+// axios.defaults.baseURL = 'http://localhost:3000';
 
 Vue.prototype.musicURL = 'https://music.163.com/song/media/outer/url?id=';
 
